@@ -11,8 +11,9 @@ const getData = async(newsType, itemVisible, pages, newsHeadline) => {
     headLine.innerText = newsHeadline;
     loadderImg.style.display = "flex";
     const dataJson = await fetch(`https://newsapi.org/v2/everything?q=${newsType}&apiKey=5b71fa803be24512b0337072b2bfaf58&pageSize=${itemVisible}&page=${pages}`).then((res)=>res.json());
-//     const dataJson = await data.json();
-    dataJson.articles.forEach(news => {
+console.log(dataJson)
+    //     const dataJson = await data.json();
+   /* dataJson.articles.forEach(news => {
         newsBox.innerHTML += `
         <div class="col-md-4">
             <div class="card">
@@ -29,7 +30,7 @@ const getData = async(newsType, itemVisible, pages, newsHeadline) => {
             </div>
         </div>
         `;
-    });
+    });*/
     loadderImg.style.display = "none";
 }
 getData("keyword", `${itemsPerView}`, `${pageNumber}`, "Top Headlines");
