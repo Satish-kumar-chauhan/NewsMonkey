@@ -10,8 +10,8 @@ const getData = async(newsType, itemVisible, pages, newsHeadline) => {
     newsBox.innerHTML = '';
     headLine.innerText = newsHeadline;
     loadderImg.style.display = "flex";
-    const data = await fetch(`https://newsapi.org/v2/everything?q=${newsType}&apiKey=5b71fa803be24512b0337072b2bfaf58&pageSize=${itemVisible}&page=${pages}`);
-    const dataJson = await data.json();
+    const dataJson = await fetch(`https://newsapi.org/v2/everything?q=${newsType}&apiKey=5b71fa803be24512b0337072b2bfaf58&pageSize=${itemVisible}&page=${pages}`).then((res)=>res.json());
+//     const dataJson = await data.json();
     dataJson.articles.forEach(news => {
         newsBox.innerHTML += `
         <div class="col-md-4">
